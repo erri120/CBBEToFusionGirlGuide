@@ -1,0 +1,12 @@
+\textbf{Gloves are in a seperate mesh:}\\
+\input{res/sections/converting_mesh_to_bs_gloves.tex}\\
+\textbf{Gloves are not in a seperate mesh:}\\
+If you have Bodysuit, for example \href{https://www.nexusmods.com/fallout4/mods/40500}{this one}, and the gloves are in the 
+same project as the complete outfit than you do everything the normal way until you need to copy the bone weights.\\
+You may have noticed at the start that you deleted finger bones from the CBBE project. You will now have to import the 
+new FemaleHands mesh that has the new finger bones. 
+\textbf{First} Head over to \textit{File->Import->From Nif} and load \textit{data/Meshes/actors/character/Characterassets/FemaleHands.nif}.\\
+\textbf{Second} You will now have to fix clipping for the gloves but only for the base shape as the hands do not have any sliders.\\
+\textbf{Third} make the hands the reference model \textit{Select NewFHands->Right Click->Set Reference}.\\
+\textbf{Fourth} Copy bone weights. The default settings are enough now that you have finger bones.\\
+\textbf{Fifth} Delete \textit{NewFHands} and make \textit{BaseFBody} the reference model again.

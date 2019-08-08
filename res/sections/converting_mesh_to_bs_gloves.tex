@@ -1,0 +1,18 @@
+Creating BodySlide files for gloves is on the easier side of things but still often ignored. Most CBBE BodySlide projects do not 
+include the gloves but they are important to convert due to the different skeleton and bones CBBE and FG uses.\\
+\textbf{First} load the outfit. To load the outfit go to \textit{File->Load Outfit} and navigate to the nif file. It is important 
+to select the nif file inside the Fallout 4 data folder and not in the MO2 folder. You should also change the Display Name to 
+something meaningful like \textit{NameOfGloves - Fusion Girl}.\\
+\textbf{Second} delete old bones. Head over to the \textit{Bones} tab and delete all bones from Project \textit{Right Click->Delete->From Project}.\\
+\textbf{Third} load the hands reference model. The hands model is separate from the body so go to \textit{File->Import->From Nif} and
+load \textit{data/meshes/actors/character/characterassets/FemaleHands.nif}.\\
+\textbf{Fourth} fix clipping. Select the gloves mesh and fix clipping (I advise to disable x-mirror \textit{Edit->X Mirror}).\\
+\textbf{Fifth} copy bone weights. Select the \textit{NewFHands} mesh and \textit{Right Click->Set Reference}. The name of the mesh
+should now be in {\color{green}{green}} and you can select the gloves mesh and \textit{Right Click->Copy Bone Weights}.\\
+\textbf{Sixth} (optional) if the gloves go beyond the hands and also cover the forearm than you need to follow this step, if they just 
+cover the hands than proceed to step seven.\\ You have to select the \textit{NewFHands} mesh and \textit{Right Click->Set Reference}. This 
+will make the text of the mesh white. You need to do this because we now load the Fusion Girl reference body which would override other 
+reference models as only one reference mesh can exist. So just go to \textit{File->Load Reference} and select \textit{Fusion Girl}. Select 
+the gloves again and \textit{Right Click->Copy Bone Weights}. Delete the Fusion Girl body \textit{BaseFBody, Right-Click->Delete} and 
+make \textit{NewFHands} the reference model again using \textit{Right Click->Set Reference}.\\
+\textbf{Seventh} save the project. Using \textit{Ctrl+Shift+S} save the project and \textbf{copy the reference shape into output}.

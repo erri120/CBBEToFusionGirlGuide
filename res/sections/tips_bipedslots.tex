@@ -1,0 +1,31 @@
+\href{https://www.creationkit.com/fallout4/index.php?title=Biped_Slots}{Biped Slots} determine what body parts the outfit covers. 
+This element is part of an \href{https://www.creationkit.com/fallout4/index.php?title=ArmorAddon}{ARMA} record which is referenced by 
+an \href{https://www.creationkit.com/fallout4/index.php?title=Armor}{ARMO} record. Sounds confusing? Let me explain:\\
+Adding an outfit into FO4 requires an esp. Using the creationkit or xEdit/zEdit you can create an esp and add an ARMO record to it.
+This ARMO record contains all information about an outfit. ARMO stands for Armor and ARMA stands for ArmorAddon. The ARMO record also 
+contains the Editor ID of the ARMA record. You have one ARMA record for every ARMO record, no more, no less. The ARMA record contains 
+information about what nif file to use and what Biped Slot the armor/outfit uses.\\
+"This is all nice and good, but what has this to do with converting outfits?". you may ask. Well it is important to understand 
+what type of Biped Slot the outfit you are converting has. The most important, is slot \textbf{33 - BODY}.\\
+Remember when saving a project that you have the option to copy the reference model into the output file? If the outfit is in slot 
+33 than you \textbf{must} copy the reference model. If you don't have a BODY in the slot for the BODY than you won't see the body.
+Simple, right? You can try and not copy the ref model for a slot 33 outfit and see what happens.\\
+This also means that you \textbf{should not} copy the ref model for everything else. For example: If you have an outfit in slot 
+41 - [A] Torso than you don't want to copy the ref model because doing so will make the output file 3x larger and can introduce
+clipping.\\
+On the topic of clipping: \textbf{You can't zap a non existing ref model. Only use zap sliders in a project if the outfit is in 
+slot 33.}\\
+Lets have a look inside an esp using zEdit (using \textit{SimplyClothes} as an example):\\
+\includegraphics[width=\textwidth]{slots_01.png}\\
+You can see that you have one ARMO record and five ARMA records.\\
+\linebreak
+\includegraphics[width=\textwidth]{slots_02.png}\\
+Inside the ARMO record we can find out what ARMA record it uses.\\
+\linebreak
+\includegraphics[width=\textwidth]{slots_03.png}\\
+The ARMA record shows that the outfit uses slot 33.\\
+\linebreak
+\includegraphics[width=\textwidth]{slots_04.png}\\
+You can also get the slots in the ARMO record but I prefer to look at the ARMA record so that I also know what nif file it uses.
+(\textit{Note that in this case the SimplySuit shows more slots than the ARMA record because it is made up of multiple parts 
+like Boots,Shorts,\dots})
