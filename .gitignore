@@ -1,6 +1,9 @@
 src/res/images/*
 src/res/other/*
 *.code-workspace
+backup/
+dist/
+*.pdf
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
@@ -364,3 +367,4 @@ typings/
 
 # DynamoDB Local files
 .dynamodb/
+src/guide.pdf

@@ -1,0 +1,126 @@
+% !TeX program = xelatex
+\documentclass[12pt]{article}
+\usepackage[english]{babel}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{hyperref}
+\usepackage{longtable}
+\usepackage{ulem}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{fontspec}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{relsize}
+\usepackage{listings}
+\usepackage{tocloft}
+
+\geometry{a4paper, top=5mm, left=10mm, right=10mm, bottom=5mm}
+\pagenumbering{arabic}
+\graphicspath{{res/images/}}
+
+\setmainfont{Segoe UI}
+\definecolor{red}{HTML}{FF0000}
+\definecolor{blue}{HTML}{0094FF}
+\definecolor{yellow}{HTML}{FFD800}
+\definecolor{green}{HTML}{00FF21}
+\definecolor{black}{HTML}{000000}
+\definecolor{lila}{HTML}{B200FF}
+\definecolor{bg}{HTML}{212121}
+\definecolor{gray75}{gray}{0.75}
+
+\hypersetup{
+    colorlinks,
+    %$LIGHT:linkcolor={black},
+    linkcolor={white},
+    urlcolor={blue!100!black}
+}
+
+\newcommand{\hsp}{\hspace{10pt}}
+\titleformat{\section}[hang]{\huge\bfseries}{\thesection\hsp\textcolor{gray75}{|}\hsp}{0pt}{\huge\bfseries}
+\titleformat{\subsection}[hang]{\large\bfseries}{\thesubsection\hspace{5pt}}{0pt}{\large\bfseries}
+\titleformat{\subsubsection}[hang]{\normalsize\bfseries}{\thesubsubsection\hspace{4pt}}{0pt} {\normalsize\bfseries}
+
+\begin{document}
+\pagecolor{bg}
+\color{white}
+\title{Creating BodySlide Conversion for the Fusion Girl Body\\[0.2em]\smaller{}
+An extensive Guide for Modders and Creators trying to convert Outfits}
+\author{erri120}
+\date{August 2019}
+\maketitle
+\clearpage
+\renewcommand{\cftsecfont}{\bfseries\color{white}}
+\renewcommand{\cftsubsecfont}{\color{white}}
+\renewcommand{\cftsubsubsecfont}{\color{white}}
+\tableofcontents
+\clearpage
+\section{Introduction}
+\input{res/sections/introduction.tex}
+%\pagebreak
+\section{Requirements}
+\input{res/sections/requirements.tex}
+\pagebreak
+\subsection{Setting up your environment}
+\input{res/sections/requirements_environment.tex}
+\pagebreak
+\section{Converting outfits}
+\subsection{Outfit Studio}
+\input{res/sections/outfitstudio.tex}
+\pagebreak
+\subsection{CBBE To Fusion Girl}
+\subsubsection{In-Depth Example}
+\input{res/sections/converting_cbbe_to_fg.tex}
+%$LIGHT:\includegraphics[width=\textwidth]{congratulations.png}
+\includegraphics[width=\textwidth]{congratulations_transparent.png}
+\pagebreak
+\subsubsection{General procedure}
+\input{res/sections/converting_cbbe_to_fg_general.tex}
+\pagebreak
+\subsection{Mesh To BodySlide}
+\subsubsection{Outfit}
+\input{res/sections/converting_mesh_to_bs.tex}
+\pagebreak
+\subsubsection{Gloves}
+\input{res/sections/converting_mesh_to_bs_gloves.tex}
+\pagebreak
+\subsection{SliderGroups}
+\input{res/sections/slidergroups.tex}
+\pagebreak
+\section{General Tips and Tricks}
+\input{res/sections/general_tips.tex}
+\pagebreak
+\section{Tips for different outfit types}
+%\input{res/sections/tips.tex}
+%\pagebreak
+\subsection{Biped Slots}
+\input{res/sections/tips_bipedslots.tex}
+\pagebreak
+\subsection{Gloves}
+\input{res/sections/tips_gloves.tex}
+\pagebreak
+\subsection{Bodysuit}
+\input{res/sections/tips_bodysuit.tex}
+\pagebreak
+\subsection{Swimsuit/Bikini/Underwear}
+\input{res/sections/tips_swimsuit.tex}
+%\pagebreak
+\subsection{Armor}
+\input{res/sections/tips_armor.tex}
+\pagebreak
+\subsection{Dress/Skirt}
+\input{res/sections/tips_dress.tex}
+\pagebreak
+\subsection{High Heels}
+\input{res/sections/tips_hh.tex}
+\pagebreak
+\section{Publishing your Conversion}
+\input{res/sections/publishing.tex}
+\pagebreak
+\section{Sliderlist}
+\input{res/sections/slider_list.tex}
+\pagebreak
+\section{Afterword}
+\input{res/sections/afterword.tex}
+\end{document}

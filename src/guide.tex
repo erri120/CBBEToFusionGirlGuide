@@ -14,6 +14,7 @@
 \usepackage{xcolor}
 \usepackage{relsize}
 \usepackage{listings}
+\usepackage{tocloft}
 
 \geometry{a4paper, top=5mm, left=10mm, right=10mm, bottom=5mm}
 \pagenumbering{arabic}
@@ -31,24 +32,28 @@
 
 \hypersetup{
     colorlinks,
-    linkcolor={black},
+    %$LIGHT:linkcolor={black},
+    %$DARK:linkcolor={white},
     urlcolor={blue!100!black}
 }
+
 \newcommand{\hsp}{\hspace{10pt}}
 \titleformat{\section}[hang]{\huge\bfseries}{\thesection\hsp\textcolor{gray75}{|}\hsp}{0pt}{\huge\bfseries}
 \titleformat{\subsection}[hang]{\large\bfseries}{\thesubsection\hspace{5pt}}{0pt}{\large\bfseries}
 \titleformat{\subsubsection}[hang]{\normalsize\bfseries}{\thesubsubsection\hspace{4pt}}{0pt} {\normalsize\bfseries}
 
 \begin{document}
-%\pagecolor{bg}
-%\color{white}
+%$DARK:\pagecolor{bg}
+%$DARK:\color{white}
 \title{Creating BodySlide Conversion for the Fusion Girl Body\\[0.2em]\smaller{}
 An extensive Guide for Modders and Creators trying to convert Outfits}
 \author{erri120}
 \date{August 2019}
 \maketitle
 \clearpage
-
+%$DARK:\renewcommand{\cftsecfont}{\bfseries\color{white}}
+%$DARK:\renewcommand{\cftsubsecfont}{\color{white}}
+%$DARK:\renewcommand{\cftsubsubsecfont}{\color{white}}
 \tableofcontents
 \clearpage
 \section{Introduction}
@@ -67,6 +72,8 @@ An extensive Guide for Modders and Creators trying to convert Outfits}
 \subsection{CBBE To Fusion Girl}
 \subsubsection{In-Depth Example}
 \input{res/sections/converting_cbbe_to_fg.tex}
+%$LIGHT:\includegraphics[width=\textwidth]{congratulations.png}
+%$DARK:\includegraphics[width=\textwidth]{congratulations_transparent.png}
 \pagebreak
 \subsubsection{General procedure}
 \input{res/sections/converting_cbbe_to_fg_general.tex}
@@ -76,7 +83,8 @@ An extensive Guide for Modders and Creators trying to convert Outfits}
 \input{res/sections/converting_mesh_to_bs.tex}
 \pagebreak
 \subsubsection{Gloves}
-\input{res/sections/converting_mesh_to_bs_gloves.tex}
+\input{res/sections/converting_mesh_to_bs_gloves.tex}\\
+\includegraphics[width=\textwidth]{gloves_header}
 \pagebreak
 \subsection{SliderGroups}
 \input{res/sections/slidergroups.tex}
