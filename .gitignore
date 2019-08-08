@@ -1,5 +1,7 @@
 src/res/images/*
 src/res/other/*
+src/guideLight.tex
+src/guideDark.tex
 *.code-workspace
 backup/
 dist/

@@ -26,7 +26,7 @@ function cleanWorkspace(cb){
     if(dark){
         return del('guideDark.pdf');
     }else{
-        return del('guide.pdf');
+        return del('guideLight.pdf');
     }
 }
 
@@ -37,23 +37,13 @@ function optimizeImages(cb){
 }
 
 function backup(cb){
-    if(dark){
-        return gulp.src('src/guideDark.tex')
+    return gulp.src('src/guide.tex')
         .pipe(gulp.dest('backup'));
-    }else{
-        return gulp.src('src/guide.tex')
-        .pipe(gulp.dest('backup'));
-    }
 }
 
 function loadBackup(cb){
-    if(!dark){
-        return gulp.src('backup/guideDark.tex')
+    return gulp.src('backup/guide.tex')
         .pipe(gulp.dest('src'));
-    }else{
-        return gulp.src('backup/guide.tex')
-        .pipe(gulp.dest('src'));
-    }
 }
 
 function packagePdf(cb){
@@ -62,8 +52,8 @@ function packagePdf(cb){
         .pipe(zip('guideDarkPdf.zip'))
         .pipe(gulp.dest('dist'))
     }else{
-        return gulp.src('guide.pdf')
-        .pipe(zip('guidePdf.zip'))
+        return gulp.src('guideLight.pdf')
+        .pipe(zip('guideLightPdf.zip'))
         .pipe(gulp.dest('dist'))
     }
 }
@@ -90,6 +80,7 @@ function makeDarkTex(cb){
 function makeLightTex(cb){
     return gulp.src('src/guide.tex')
         .pipe(change(replaceStr))
+        .pipe(rename('guideLight.tex'))
         .pipe(gulp.dest('src/'));    
 }
 
@@ -97,10 +88,10 @@ function buildGuide(cb){
     if(dark){
         return run('xelatex -interaction=nonstopmode -file-line-error -aux-directory=src -include-directory=src/res/sections/ src/guideDark.tex').exec();
     }else{
-        return run('xelatex -interaction=nonstopmode -file-line-error -aux-directory=src -include-directory=src/res/sections/ src/guide.tex').exec();
+        return run('xelatex -interaction=nonstopmode -file-line-error -aux-directory=src -include-directory=src/res/sections/ src/guideLight.tex').exec();
     }
 }
 
-exports.buildDark = series(backup,setDark,optimizeImages,makeDarkTex,buildGuide,loadBackup,packagePdf,cleanWorkspace);
+exports.buildDark = series(setDark,backup,optimizeImages,makeDarkTex,buildGuide,loadBackup,packagePdf,cleanWorkspace);
 exports.buildLight = series(setLight,backup,optimizeImages,makeLightTex,buildGuide,loadBackup,packagePdf,cleanWorkspace);
 exports.packageImages = series(optimizeImages,packageImages);
