@@ -1,0 +1,12 @@
+It's not always about huge \textit{assets}. \href{https://www.nexusmods.com/users/11770218?tab=user+files}{kozakowy} demonstrates this
+perfectly. This section covers the little tricks for converting a dress or a skirt.
+\begin{wrapfigure}[10]{r}{0.3\textwidth}
+    \vspace{-12pt}
+    \includegraphics[width=0.3\textwidth]{skirt_01.png}
+\end{wrapfigure}
+If you have the original mod and the CBBE BodySlide files you need to take a closer look at the bones. These outfits commonly use 
+custom cloth bones for realistic physics. After loading the project into OS you would normally go an delete all bones \textbf{but} 
+you can't do that with custom cloth bones. You want to delete all bones that are part of the CBBE reference model and keep the 
+custom bones.\\
+When you've done all your fixing and move to the part where you need to copy the bone weights, you may have to increase the search 
+radius by a bit so that the weights on the cloth bones are correctly copied over.
