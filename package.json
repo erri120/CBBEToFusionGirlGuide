@@ -4,9 +4,22 @@
   "description": "A Guide for converting CBBE outfits in Fallout 4 to the Fusion Girl body",
   "scripts": {
     "light": "gulp buildLight",
-    "dark": "gulp buildDark"
+    "dark": "gulp buildDark",
+    "images": "gulp packageImages",
+    "buildAll": "gulp buildLight && gulp buildDark && gulp packageImages"
   },
-  "author": "erri120",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/erri120/CBBEToFusionGirlGuide.git"
+  },
+  "homepage": "https://github.com/erri120/CBBEToFusionGirlGuide/",
+  "bugs": {
+    "url": "https://github.com/erri120/CBBEToFusionGirlGuide/issues"
+  },
+  "author": {
+    "name": "erri120",
+    "url": "https://www.nexusmods.com/users/6672467"
+  },
   "license": "AGPL-3.0-or-later",
   "devDependencies": {
     "del": "^5.0.0",
