@@ -370,3 +370,4 @@ typings/
 # DynamoDB Local files
 .dynamodb/
 src/guide.pdf
+src/guideDark.tex
