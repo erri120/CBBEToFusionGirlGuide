@@ -49,10 +49,12 @@ function loadBackup(cb){
 function packagePdf(cb){
     if(dark){
         return gulp.src('guideDark.pdf')
+        .pipe(gulp.src('LICENSE'))
         .pipe(zip('guideDarkPdf.zip'))
         .pipe(gulp.dest('dist'))
     }else{
         return gulp.src('guideLight.pdf')
+        .pipe(gulp.src('LICENSE'))
         .pipe(zip('guideLightPdf.zip'))
         .pipe(gulp.dest('dist'))
     }
