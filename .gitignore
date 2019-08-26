@@ -1,5 +1,6 @@
 src/res/images/*
-src/res/other/*
+src/res/other/* 
+!*.pas
 src/guideLight.tex
 src/guideDark.tex
 *.code-workspace
