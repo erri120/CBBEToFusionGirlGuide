@@ -10,12 +10,14 @@ const {series} = gulp;
 let dark = false;
 
 function setDark(){
+    //returns promise so gulp won't complain
     return new Promise(function(resolve,reject){
         dark = true;
         resolve();
     });
 }
 function setLight(){
+    //returns promise so gulp won't complain
     return new Promise(function(resolve,reject){
         dark = false;
         resolve();
@@ -31,6 +33,7 @@ function cleanWorkspace(cb){
 }
 
 function optimizeImages(cb){
+    //using gulp-imagemin to compress images, will not compress image that already has been
     return gulp.src('src/res/images/*')
         .pipe(imagemin())
         .pipe(gulp.dest('src/res/images'));
@@ -47,6 +50,7 @@ function loadBackup(cb){
 }
 
 function packagePdf(cb){
+    //creates the final output file including both the pdf file and the LICENSE file
     if(dark){
         return gulp.src('guideDark.pdf')
         .pipe(gulp.src('LICENSE'))
@@ -73,6 +77,7 @@ function replaceStr(content){
 }
 
 function makeDarkTex(cb){
+    //creates the guideDark.tex file using the guide.tex file and uncommenting all DARK marked lines
     return gulp.src('src/guide.tex')
         .pipe(change(replaceStr))
         .pipe(rename('guideDark.tex'))
@@ -80,6 +85,7 @@ function makeDarkTex(cb){
 }
 
 function makeLightTex(cb){
+    //creates the guideLight.tex file using the guide.tex file and uncommenting all LIGHT marked lines
     return gulp.src('src/guide.tex')
         .pipe(change(replaceStr))
         .pipe(rename('guideLight.tex'))
@@ -87,6 +93,7 @@ function makeLightTex(cb){
 }
 
 function buildGuide(cb){
+    //using gulp-run and xelatex from your PATH, creates pdf file from either Light or Dark tex file
     if(dark){
         return run('xelatex -interaction=nonstopmode -file-line-error -aux-directory=src -include-directory=src/res/sections/ src/guideDark.tex').exec();
     }else{
@@ -94,6 +101,7 @@ function buildGuide(cb){
     }
 }
 
+//all commands available using gulp <command>, requires gulp cli
 exports.buildDark = series(setDark,backup,optimizeImages,makeDarkTex,buildGuide,loadBackup,packagePdf,cleanWorkspace);
 exports.buildLight = series(setLight,backup,optimizeImages,makeLightTex,buildGuide,loadBackup,packagePdf,cleanWorkspace);
 exports.packageImages = series(optimizeImages,packageImages);
