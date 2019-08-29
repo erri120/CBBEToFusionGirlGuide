@@ -132,4 +132,11 @@ exports.buildLight = series(
   packagePdf,
   cleanWorkspace
 );
+exports.testLight = series(
+  setLight,
+  backup,
+  makeLightTex,
+  buildGuide,
+  loadBackup
+);
 exports.packageImages = series(optimizeImages, packageImages);

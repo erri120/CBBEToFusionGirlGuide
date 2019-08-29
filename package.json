@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "A Guide for converting CBBE outfits in Fallout 4 to the Fusion Girl body",
   "scripts": {
+    "test": "gulp testLight",
     "light": "gulp buildLight",
     "dark": "gulp buildDark",
     "images": "gulp packageImages",
