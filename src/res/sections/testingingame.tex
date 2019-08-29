@@ -1,0 +1,18 @@
+Testing outfits in game requires you to first equip the outfit. There are multiple ways of getting it into your inventory.
+You can use an \href{https://www.nexusmods.com/fallout4/mods/16718}{In-Game ESP Explorer (outdated)} or use the console.
+In the latter case you would have to use the command \textit{player.additem x 1} to add the item to your inventory. Getting the 
+FormID of the outfit would also mean using \textit{help "whatever" 0 ARMO}.\\
+I have created a simple xEdit-Script, that you can download from the Nexus Mods page in the misc file section, that will create a 
+batch file for you. \textit{"What is a batch file?"}, you may ask. It's a file containing a list of commands, in this case, it will 
+contain the command \textit{player.additem x 1} for every outfit in the selected esp.\\
+After downloading the \textit{ConversionUtilityScript.pas} file and placing it inside your \textit{FO4Edit/Scripts} folder, open 
+FO4Edit and, this is important, load \textbf{all} plugins from your \textbf{active} load order. The FormID of an record is relative to 
+the position of the esp in your load order. After everything loaded up, select the esp \textit{Right Click->Apply Script} and select the 
+\textit{ConversionUtilityScript} from the Script dropdown menu. After clicking OK you will see a message in the console telling you 
+that the script is done applying:\\
+\textit{Done: Applying script "ConversionUtilityScript", Processed Records: 38, Elapsed Time: 00:00}\\
+You can start Fallout 4, load your game, open the console and type \textit{bat bat.txt}. If you do not like 
+the output file name than you can change it in the xEdit-Script.\\
+\includegraphics[width=0.3\textwidth]{testing_01.png}
+\includegraphics[width=0.6\textwidth]{testing_02.png}\\
+\includegraphics[height=70mm,width=0.5\textwidth]{testing_03.png}
