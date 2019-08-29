@@ -52,14 +52,16 @@ function packagePdf(cb) {
   //creates the final output file including both the pdf file and the LICENSE file
   if (dark) {
     return gulp
-      .src('guideDark.pdf')
-      .pipe(gulp.src('LICENSE'))
+      .src('LICENSE')
+      .pipe(rename('LICENSE.txt'))
+      .pipe(gulp.src('guideDark.pdf'))
       .pipe(zip('guideDarkPdf.zip'))
       .pipe(gulp.dest('dist'));
   } else {
     return gulp
-      .src('guideLight.pdf')
-      .pipe(gulp.src('LICENSE'))
+      .src('LICENSE')
+      .pipe(rename('LICENSE.txt'))
+      .pipe(gulp.src('guideLight.pdf'))
       .pipe(zip('guideLightPdf.zip'))
       .pipe(gulp.dest('dist'));
   }
