@@ -1,0 +1,82 @@
+The \textit{fusion-girl-vanilla-refits} channel on the \href{https://discord.gg/9vBqB9}{ZeX Discord} is the working channel
+for the \textbf{official} Fusion Girl Vanilla Outfit Refits. This section is for all who want to help with the 
+project. Be sure to check the pinned messages of the channel before continuing so you know the setup, naming schema 
+and rules for this project.\\
+\textbf{Naming rules:}\\
+\textit{Display Name:} FusionGirl-Vanilla-NameOfOutfit-ArmorPiece\\
+\textit{Slider Set File:} FusionGirl-Vanilla-NameOfOutfit\\
+\textit{Shape Data Folder:} FusionGirl-Vanilla\\
+\textit{Shape Data File:} FusionGirl-Vanilla-NameOfOutfit-ArmorPiece\\
+The name of the outfit equals the name of the folder you import the mesh from and if you have any additional armor pieces like 
+gloves or \textit{F\char`_Arm\char`_Heavy\char`_L} than append a \textit{-ArmorPiece} to the Display Name and Shape Data File. Example:\\
+\textit{Display Name:} FusionGirl-Vanilla-CombatArmor-ArmHeavyL\\
+\textit{Slider Set File:} FusionGirl-Vanilla-CombatArmor\\
+\textit{Shape Data Folder:} FusionGirl-Vanilla\\
+\textit{Shape Data File:} FusionGirl-Vanilla-CombatArmor-ArmHeavyL\\
+Another example:\\
+\textit{Display Name:} FusionGirl-Vanilla-ArmoredCoat\\
+\textit{Slider Set File:} FusionGirl-Vanilla-ArmoredCoat\\
+\textit{Shape Data Folder:} FusionGirl-Vanilla\\
+\textit{Shape Data File:} FusionGirl-Vanilla-ArmoredCoat\\
+The vanilla meshes can be found inside \textit{Fallout4 - Meshes.ba2} and if you do the DLC in the \textit{DLC - Main.ba2} file.
+You will need a tool to extract those meshes, I will use \href{https://www.nexusmods.com/fallout4/mods/78}{B.A.E}. I created a 
+Vanilla to Fusion Girl conversion reference that is available in the misc section of the mod page.\\
+When you have everything ready open \textit{bae.exe} and \textit{File->Open File}. Click \textit{Select None} to deselect everything
+because we only want some meshes. Inside \textit{Meshes} you should watch out for \textit{Armor} and \textit{Clothes}. 
+\href{https://tinyurl.com/y2podp84}{Here} is a spreadsheet containing information about what outfits are already done and what 
+needs a conversion. If you decide to work on an outfit please comment in the notes field of that outfit that you are working on it.
+You can select those and hit extract if you want all outfit meshes or expand one of them and select the outfit you want to convert. 
+When hitting \textit{Extract} select a folder and let the program do its magic.\\
+Start OS and select \textit{File->Import->From NIF}. You will have a lot of meshes to select from so let me explain what they do:
+\begin{itemize}
+    \item \textbf{GO\char`_\dots} - don't bother
+    \item \textbf{\dots\char`_1stPerson} - don't bother
+    \item you want everything else
+\end{itemize}
+The rest of this section depends on what type of outfit you loaded.\\
+\textbf{Clothes:}\\
+When selecting what mesh to load, you will notice that you can choose between 
+\textit{OutfitF.nif}, \textit{OutfitM.nif}, \textit{FOutfit.nif} and \textit{MOutfit.nif}. The \textit{F} and \textit{M} stand for 
+the sex so load the mesh with the \textit{F} in the name.\\
+These outfits are mostly complete outfits for slot 33. If you haven't read the Biped Slots section go there and read what slot 33 means.
+After loading the outfit in OS you will notice a mesh called \textit{BaseFemaleBodyFitted:0} which you have to delete. I recommend 
+splitting the mesh because currently you only have one mesh with all parts (eg Shoes, Shirt, Pants,...). I always seperate at least 
+the shoes so select the mask tool and mask those shoes. Once masked select the mesh and \textit{Rigth Click->Seperate Vertices} call it
+\textit{Shoes}.\\
+Vanilla outfits are low-poly which can be a pain to work with meaning that you have the option to increase the amount of vertices.
+You will need Blender for this step so go ahead and start Blender. In Outfit Studio select the mesh you want to edit, which should be
+everything but the shoes, and \textit{Right Click->Export->To OBJ}. Go into Blender and import the \textit{.obj} file using 
+\textit{File->Import->Wavefront (.obj)}. Select the mesh in the top right corner and hit \textit{Tab} to go into edit mode.
+Select \textit{Edge->Subdivide} in the menu that is at the top of the viewport (see the picture in section 4.1 if you're stuck). 
+Make sure you still have the mesh selected and press
+\textit{Tab} to go into Object Mode again. Exporting the mesh is as easy as going into \textit{File->Export->Wavefront (.obj)}
+but use the correct settings! Those can be changed in the botton left corner. You will have to tick \textit{Selection Only} and untick 
+\textit{Write Materials}! After Exporting go into Outfit Studio again and \textit{File->Import->From OBJ}. The name of the imported mesh 
+has to be unique so just append a \textit{-subdivided} or something to the name. The mesh doesn't have a material applied to it so 
+copy the material from the original mesh by selecting it and \textit{Right Click->Properties} and copy pasting the Material path.
+The bone weights also have to be copied over so select the original mesh and \textit{Right Click->Set Reference} than select the subdivided 
+mesh and \textit{Right Click->Copy Bone Weights}. Try pressing \textit{Ctrl+Shift+S} to see if there are unweighted areas, if so than 
+copy the bone weights again but with a bigger search radius (increment in 0.5 or 1 steps).\\
+When you have copied the Material and the Bone Weights from the original mesh to the subdivided mesh you can delete the original as 
+we will not need it anymore. The next steps are similar to your normal conversion so go into the \textit{Bones} tab and delete all 
+non cloth bones from the project. Instead of loading the \textit{CBBE To Fusion Girl} reference model we of course have to load the 
+\textit{Vanilla To Fusion Girl} reference. Select the main mesh (not the shoes) and hit \textit{Ctrl+C} to conform it and set the slider 
+to 100 and select \textit{Shape->Set Base Shape}. Load the Fusion Girl reference model and begin your normal conversion process.\\
+Once you are done with doing the normal conversion steps and you want to save, make sure that you follow the naming rules available in 
+the \textit{fusion-girl-vanilla-refits} channel on the \href{https://discord.gg/9vBqB9}{ZeX Discord}. After you are done with converting, 
+testing and adjusting go to the \href{https://tinyurl.com/y2podp84}{spreadsheet} and comment on the outfit you just did that you are done.
+You will have to upload the BodySlide files somewhere and provide a link for us to download. Do not upload to the Nexus but to a provider 
+such as GDrive, Dropbox, Mega,...\\
+\textbf{Armor:}\\
+There are two types of Armor you will find: Individual armor pieces and slot 33 armor. Example for the first are Gloves, \textit{F\char`_Arm\char`_L}, \textit{F\char`_Arm\char`_R}, \textit{F\char`_Helmet},
+\textit{F\char`_Leg\char`_L}, \textit{F\char`_Leg\char`_R}, \textit{F\char`_Torso} while examples for slot 33 armor ar the armored coat and army fatigues. Converting slot 33 armor is the same process as converting clothes 
+so follow the \textit{Clothes} part above for those.\\
+Converting individual armor pieces is more tedious than some slot 33 outfit because you are not doing one outfit for a long period of time 
+but multiple small once. The good thing is that you can skip a lot of armor pieces when done correct.\\
+Before loading your armor piece take a look at the naming schema for the other once. You will see that you can have two seperate meshes for 
+left and right so take a look and see if they are the same.\\
+After loading the mesh go into the \textit{Bones} tab and delete all non cloth bones from the project. Load the \textit{Vanilla To Fusion Girl} 
+reference model, conform all, set the slider to 100, set base shape and load the Fusion Girl body. Next up are just normal conversion 
+steps but you can skip a lot of sliders (or all depending on the piece) because when doing an arm piece than you won't have to look at the legs.\\
+Before you go and save the project make sure you know the naming rules available in the \textit{fusion-girl-vanilla-refits} channel 
+on the \href{https://discord.gg/9vBqB9}{ZeX Discord}.
